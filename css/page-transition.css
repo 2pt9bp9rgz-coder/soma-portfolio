@@ -1,0 +1,40 @@
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  pointer-events: none;
+}
+
+.page-transition-strip {
+  flex: 1;
+  background: #0a0a0a;
+  transform: translateX(0%);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.page-transition-strip:nth-child(1) {
+  transition-delay: 0ms;
+}
+.page-transition-strip:nth-child(2) {
+  transition-delay: 45ms;
+}
+.page-transition-strip:nth-child(3) {
+  transition-delay: 90ms;
+}
+.page-transition-strip:nth-child(4) {
+  transition-delay: 135ms;
+}
+.page-transition-strip:nth-child(5) {
+  transition-delay: 180ms;
+}
+.page-transition-strip:nth-child(6) {
+  transition-delay: 225ms;
+}
+.page-transition-strip:nth-child(7) {
+  transition-delay: 270ms;
+}
+
+.page-transition.is-hidden .page-transition-strip {
+  transform: translateX(110vw);
+}
