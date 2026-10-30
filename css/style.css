@@ -19,6 +19,8 @@
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .shooting-star-wrap {
@@ -35,11 +37,13 @@
   border-radius: 50%;
   background: var(--star-color, #fff);
   opacity: 0;
-  filter: drop-shadow(0 0 6px var(--star-color, #fff)) drop-shadow(0 0 2px var(--star-color, #fff));
+  filter: drop-shadow(0 0 4px var(--star-color, #fff));
   animation-name: meteor-fly;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   transition: background 0.6s ease, filter 0.6s ease;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .shooting-star::before {

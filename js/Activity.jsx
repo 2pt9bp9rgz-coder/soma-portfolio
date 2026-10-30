@@ -40,7 +40,11 @@ function ActivityTagline() {
       <svg className="activity-tagline-bolt activity-tagline-bolt--left" viewBox="0 0 24 24" fill="currentColor">
         <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
       </svg>
-      <p className="activity-tagline">学びを捨てるな、遊び倒せ。知識は人生の最強の武器だ！</p>
+      <p className="activity-tagline">
+        学びを捨てるな、遊び倒せ。
+        <br />
+        知識は人生の最強の武器だ！
+      </p>
       <svg className="activity-tagline-bolt activity-tagline-bolt--right" viewBox="0 0 24 24" fill="currentColor">
         <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
       </svg>
@@ -63,10 +67,10 @@ function Activity() {
       </div>
 
       <FadeUp as="div" className="activity-body">
-        <p className="activity-org-name">学生団体「StuBrige」</p>
+        <p className="activity-org-name">学生団体「StuBridge」</p>
         <ActivityTagline />
         <p className="activity-desc">
-          2026年10月26日より、学生が学んだ知識を「遊び・発信・つながり」に変える学生団体としてStuBrigeを立ち上げました。(慶應義塾大学の公認団体ではありません)。
+          2026年10月26日より、学生が学んだ知識を「遊び・発信・つながり」に変える学生団体としてStuBridgeを立ち上げました。(慶應義塾大学の公認団体ではありません)。
           <br />
           第1弾プロジェクトは、2027年3月開催の「世界史クイズ大会」(リアル開催)を考えています！
         </p>
