@@ -90,6 +90,7 @@ body {
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
 }
 
@@ -462,6 +463,7 @@ img, svg {
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   background: #000;
   overflow: hidden;
 }
@@ -637,6 +639,7 @@ img, svg {
 .page-section {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   padding: 6rem 8vw;
   border-top: 2px solid transparent;
   border-image: var(--border-gradient) 1;
