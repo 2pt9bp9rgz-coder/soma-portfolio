@@ -70,7 +70,7 @@ function Activity() {
         <p className="activity-org-name">学生団体「StuBridge」</p>
         <ActivityTagline />
         <p className="activity-desc">
-          2026年10月26日より、学生が学んだ知識を「遊び・発信・つながり」に変える学生団体としてStuBridgeを立ち上げました。(慶應義塾大学の公認団体ではありません)。
+          2026年10月26日より、学生が学んだ知識を「遊び・発信・つながり」に変える学生団体としてStuBridgeを立ち上げました。
           <br />
           第1弾プロジェクトは、2027年3月開催の「世界史クイズ大会」(リアル開催)を考えています！
         </p>
@@ -78,7 +78,9 @@ function Activity() {
         <div className="activity-recruit">
           <p className="activity-recruit-title">コアメンバー募集中</p>
           <p className="activity-recruit-text">
-            一緒に団体を立ち上げてくれる仲間を募集しています。気軽に応募してください！
+            一緒に団体を立ち上げてくれる仲間を募集しています。
+            <br />
+            気軽に応募してください！
           </p>
           <p className="activity-recruit-deadline">応募締切：2026年11月8日(日)</p>
 

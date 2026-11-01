@@ -9,6 +9,7 @@ function App() {
       <Goals />
       <Product />
       <Activity />
+      <Video />
       <Contact />
       <Footer />
     </div>

@@ -7,6 +7,7 @@ function Nav() {
     { label: "VISION", href: "#about-en-2" },
     { label: "PRODUCT", href: "#product" },
     { label: "ACTIVITY", href: "#activity" },
+    { label: "VIDEO", href: "#video" },
     { label: "CONTACT", href: "#contact" },
   ];
 

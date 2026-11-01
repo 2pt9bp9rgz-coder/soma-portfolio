@@ -19,7 +19,7 @@ function AboutMe() {
         <span className="section-heading-dash" style={{ background: "#4a6b7f" }} />
       </div>
 
-      <SectionPhotoHeading photo="images/gallery-7.jpg" title="ABOUT ME" subtitle="私について" />
+      <SectionPhotoHeading photo="images/about-me.jpg?v=2" title="ABOUT ME" subtitle="私について" />
 
       <div className="about-me-body">
         {lines.map((line, i) => (

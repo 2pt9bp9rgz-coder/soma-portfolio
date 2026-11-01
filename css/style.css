@@ -1652,6 +1652,27 @@ img, svg {
   border-radius: 2px;
 }
 
+/* コアメンバー募集の枠の上に StuBridge の橋が乗るように（ロゴ画像は橋桁の下端で切ってある） */
+.activity-recruit {
+  position: relative;
+}
+
+.activity-recruit::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% - 14px);
+  left: 50%;
+  width: min(85%, 500px);
+  aspect-ratio: 1200 / 636;
+  transform: translateX(-50%);
+  /* ロゴの形で切り抜いて、募集の枠と同じ色で塗る */
+  background: #f4f5f7;
+  -webkit-mask: url("../images/stubridge-logo.png") center bottom / contain no-repeat;
+  mask: url("../images/stubridge-logo.png") center bottom / contain no-repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .activity-body {
   max-width: 640px;
   margin: 0 auto;
@@ -1840,6 +1861,285 @@ img, svg {
   }
   .activity-recruit {
     padding: 2rem 1.4rem;
+  }
+}
+
+/* ---------- Video ---------- */
+.video {
+  position: relative;
+  padding: 7rem 8vw;
+  background: linear-gradient(180deg, #15263c 0%, #0b1420 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* 上下にフィルムの穴 */
+.video::before,
+.video::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, rgba(142, 167, 196, 0.25) 0 18px, transparent 18px 34px);
+}
+
+.video::before {
+  top: 22px;
+}
+
+.video::after {
+  bottom: 22px;
+}
+
+.video-heading-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.video-heading {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+  letter-spacing: 1.5px;
+}
+
+.video-heading-sub {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.video-heading-dash {
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 16px;
+  background: #8ea7c4;
+  border-radius: 2px;
+}
+
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.video-screen {
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease;
+}
+
+.video-item:hover .video-screen {
+  transform: translateY(-4px);
+}
+
+.video-screen iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #000;
+}
+
+.video-item figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding-left: 0.9rem;
+  border-left: 3px solid #8ea7c4;
+}
+
+.video-show {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #8ea7c4;
+}
+
+.video-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.video-sub-heading {
+  max-width: 1100px;
+  margin: 4.5rem auto 1.5rem;
+  font-family: "Anton", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: #8ea7c4;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.video-sub-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(142, 167, 196, 0.35);
+}
+
+.video-reels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.video-reel {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease;
+}
+
+.video-reel:hover {
+  transform: translateY(-4px);
+}
+
+.video-reel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 再生ボタン */
+.video-reel-play {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.video-reel-play::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 8px 0 8px 13px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.video-offer {
+  max-width: 1100px;
+  margin: 4rem auto 0;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px dashed rgba(142, 167, 196, 0.5);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.video-offer-label {
+  font-family: "Anton", sans-serif;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  color: #8ea7c4;
+}
+
+.video-offer-title {
+  margin-top: 0.6rem;
+  font-weight: 900;
+  font-size: clamp(1.15rem, 3.5vw, 1.5rem);
+}
+
+.video-offer-text {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.video-offer-btn {
+  display: inline-block;
+  margin-top: 1.6rem;
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: #fff;
+  color: #15263c;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-offer-btn:hover {
+  transform: translateY(-3px);
+  background: #dfe7f0;
+}
+
+@media (max-width: 640px) {
+  .video-reels {
+    gap: 0.5rem;
+  }
+  .video-reel {
+    border-radius: 4px;
+  }
+  .video-reel-play {
+    right: 5px;
+    bottom: 5px;
+    width: 26px;
+    height: 26px;
+    border-width: 1.5px;
+  }
+  .video-reel-play::after {
+    border-width: 5px 0 5px 8px;
+  }
+  .video-sub-heading {
+    margin-top: 3rem;
+  }
+  .video-offer {
+    margin-top: 2.5rem;
+    padding: 2rem 1.2rem;
+  }
+  .video {
+    padding: 5rem 5vw;
+  }
+  .video::before,
+  .video::after {
+    height: 10px;
+    background: repeating-linear-gradient(90deg, rgba(142, 167, 196, 0.25) 0 12px, transparent 12px 24px);
+  }
+  .video::before {
+    top: 16px;
+  }
+  .video::after {
+    bottom: 16px;
+  }
+  .video-list {
+    gap: 0.8rem;
+  }
+  .video-item figcaption {
+    margin-top: 0.6rem;
+    padding-left: 0.5rem;
+    border-left-width: 2px;
+  }
+  .video-show {
+    font-size: 0.65rem;
+  }
+  .video-title {
+    font-size: 0.72rem;
   }
 }
 
