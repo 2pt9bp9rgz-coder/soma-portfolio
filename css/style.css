@@ -1395,12 +1395,12 @@ img, svg {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 6px max(10%, calc(50% - 168px)) 14px;
+  padding: 6px calc(50% - min(40vw, 168px)) 14px; /* 1枚目・最後のカードも真ん中に来るように */
   box-sizing: border-box;
 }
 .product-slider::-webkit-scrollbar { display: none; }
 .product-slider .product-card {
-  flex: 0 0 80%;
+  flex: 0 0 min(80vw, 336px); /* 前と同じ大きさ（幅80%・最大336px） */
   scroll-snap-align: center;
 }
 .product-dots {
