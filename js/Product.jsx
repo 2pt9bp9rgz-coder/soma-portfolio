@@ -64,15 +64,38 @@ function Product() {
     },
   ];
 
+  // 横にスライドして見る（2026-11-15）。下の点は今見ているカード
+  const [active, setActive] = React.useState(0);
+  const sliderRef = React.useRef(null);
+  const onScroll = () => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const cards = [...el.children];
+    const mid = el.scrollLeft + el.clientWidth / 2;
+    const i = cards.reduce((best, c, idx) => Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid) < Math.abs(cards[best].offsetLeft + cards[best].offsetWidth / 2 - mid) ? idx : best, 0);
+    setActive(i);
+  };
+  const goTo = (i) => {
+    const el = sliderRef.current, c = el && el.children[i];
+    if (c) el.scrollTo({ left: c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2, behavior: "smooth" });
+  };
+
   return (
     <section className="product" id="product">
       <ProductStretchTitle />
 
       <div className="product-body">
         <div className="product-cards">
-          {products.map((p, i) => (
-            <ProductCard key={i} {...p} />
-          ))}
+          <div className="product-slider" ref={sliderRef} onScroll={onScroll}>
+            {products.map((p, i) => (
+              <ProductCard key={i} {...p} />
+            ))}
+          </div>
+          <div className="product-dots">
+            {products.map((_, i) => (
+              <button key={i} className={i === active ? "active" : ""} aria-label={`${i + 1}枚目`} onClick={() => goTo(i)} />
+            ))}
+          </div>
           <p className="product-note">他にも現在開発中です！</p>
         </div>
       </div>

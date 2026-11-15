@@ -1387,6 +1387,43 @@ img, svg {
   width: 100%;
 }
 
+.product-slider {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 6px max(10%, calc(50% - 168px)) 14px;
+  box-sizing: border-box;
+}
+.product-slider::-webkit-scrollbar { display: none; }
+.product-slider .product-card {
+  flex: 0 0 80%;
+  scroll-snap-align: center;
+}
+.product-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: -0.6rem;
+}
+.product-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: width 0.2s, background 0.2s;
+}
+.product-dots button.active {
+  width: 22px;
+  background: #fff;
+}
+
 .product-card {
   position: relative;
   display: block;
@@ -2279,4 +2316,11 @@ img, svg {
 .title-first-letter {
   color: #8ea7c4;
   -webkit-text-fill-color: #8ea7c4;
+}
+
+/* 広い画面ではカードが全部入るので中央にそろえる（スライドはスマホ向け） */
+@media (min-width: 769px) {
+  .product-slider { justify-content: center; padding: 6px 16px 14px; }
+  .product-slider .product-card { flex: 0 0 336px; }
+  .product-dots { display: none; }
 }
