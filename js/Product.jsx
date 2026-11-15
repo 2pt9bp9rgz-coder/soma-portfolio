@@ -53,6 +53,15 @@ function Product() {
       date: "2026年7月17日リリース",
       href: "https://apps.apple.com/jp/app/%E9%9B%A3%E9%96%A2%E5%B9%B4%E5%8F%B7-%E4%B8%96%E7%95%8C%E5%8F%B2%E3%83%88%E3%83%AC%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0/id6776702626",
     },
+    {
+      photo: "images/map-product-photo.jpg",
+      icon: "images/map-product-icon.png",
+      name: ["世界史都市マップ"],
+      caption:
+        "約480の都市をタップすると、その都市で起きた出来事が年表で出る。位置を当てる地図ゲッサーや週替わりランキングも。年号アプリと行き来して「いつ」と「どこで」をセットで。",
+      date: "2026年11月13日リリース",
+      href: "https://apps.apple.com/jp/app/id6832856543",
+    },
   ];
 
   return (
